@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - mkdir -p bin
+      - go build -o ./bin/mcp-gateway .
+
+  test:
+    cmds:
+      - go test ./...

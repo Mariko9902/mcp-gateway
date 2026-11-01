@@ -1,0 +1,99 @@
+routes:
+  swarm-mcp:
+    type: local
+    command: swarm-mcp/bin/swarm-mcp
+
+  session-mcp:
+    type: local
+    command: session-mcp/bin/session-mcp
+
+  mychat-mcp:
+    type: local
+    command: mychat-mcp/bin/mychat-mcp
+    env:
+      MYCHAT_MCP_DEFAULT_TIMEOUT_SEC: 86400
+      MYCHAT_MCP_MIN_TIMEOUT_SEC: 86400
+
+  fetch-mcp:
+    type: local
+    command: fetch-mcp/bin/fetch-mcp
+    env:
+      FETCH_MCP_FULL_THRESHOLD: 30000
+
+  gitea-mcp:
+    type: local
+    command: gitea-mcp/bin/gitea-mcp
+
+  swarm-mcp-lead:
+    type: local
+    command: swarm-mcp/bin/swarm-mcp-lead
+    env:
+      SWARM_MCP_ROLE: lead
+      SWARM_MCP_DEFAULT_TIMEOUT_SEC: 86400
+      SWARM_MCP_MIN_TIMEOUT_SEC: 86400
+      SWARM_MCP_DEBUG_SESSION_MCP_VALIDATION: "1"
+      SESSION_MCP_GATEWAY_URL: "http://127.0.0.1:15410"
+      SESSION_MCP_GATEWAY_TIMEOUT_SEC: "5"
+
+  swarm-mcp-worker:
+    type: local
+    command: swarm-mcp/bin/swarm-mcp-worker
+    env:
+      SWARM_MCP_ROLE: worker
+      SWARM_MCP_DEFAULT_TIMEOUT_SEC: 86400
+      SWARM_MCP_MIN_TIMEOUT_SEC: 86400
+      SWARM_MCP_DEBUG_SESSION_MCP_VALIDATION: "1"
+      SESSION_MCP_GATEWAY_URL: "http://127.0.0.1:15410"
+      SESSION_MCP_GATEWAY_TIMEOUT_SEC: "5"
+
+  swarm-mcp-acceptor:
+    type: local
+    command: swarm-mcp/bin/swarm-mcp-acceptor
+    env:
+      SWARM_MCP_ROLE: acceptor
+      SWARM_MCP_DEFAULT_TIMEOUT_SEC: 86400
+      SWARM_MCP_MIN_TIMEOUT_SEC: 86400
+      SWARM_MCP_DEBUG_SESSION_MCP_VALIDATION: "1"
+      SESSION_MCP_GATEWAY_URL: "http://127.0.0.1:15410"
+      SESSION_MCP_GATEWAY_TIMEOUT_SEC: "5"
+
+  swarm-mcp-executor:
+    type: local
+    command: swarm-mcp/bin/swarm-mcp-executor
+    env:
+      SWARM_MCP_ROLE: executor
+      SWARM_MCP_DEFAULT_TIMEOUT_SEC: 86400
+      SWARM_MCP_MIN_TIMEOUT_SEC: 86400
+      SWARM_MCP_DEBUG_SESSION_MCP_VALIDATION: "1"
+      SESSION_MCP_GATEWAY_URL: "http://127.0.0.1:15410"
+      SESSION_MCP_GATEWAY_TIMEOUT_SEC: "5"
+
+  swarm-mcp-tester:
+    type: local
+    command: swarm-mcp/bin/swarm-mcp-tester
+    env:
+      SWARM_MCP_ROLE: tester
+      SWARM_MCP_DEFAULT_TIMEOUT_SEC: 86400
+      SWARM_MCP_MIN_TIMEOUT_SEC: 86400
+      SWARM_MCP_DEBUG_SESSION_MCP_VALIDATION: "1"
+      SESSION_MCP_GATEWAY_URL: "http://127.0.0.1:15410"
+      SESSION_MCP_GATEWAY_TIMEOUT_SEC: "5"
+
+  syzygy-mcp-go:
+    type: local
+    command: syzygy-mcp-go/bin/syzygy-mcp
+
+  mycli-dms-mcp:
+    type: local
+    command: mycli-dms-mcp/bin/mycli-dms-mcp
+
+  better-playwright-mcp:
+    type: local
+    command: /Users/chen/.nvm/versions/node/v24.14.0/bin/node
+    working_dir: /Users/chen/coding/mcp/better-playwright-mcp
+    args:
+      - /Users/chen/coding/mcp/better-playwright-mcp/bin/cli.js
+      - mcp
+    env:
+      PLAYWRIGHT_MCP_INIT_PAGE: /Users/chen/coding/mcp/better-playwright-mcp/lib/enhanced/init-page-enhanced.js
+      PLAYWRIGHT_MCP_ISOLATED: "true"
